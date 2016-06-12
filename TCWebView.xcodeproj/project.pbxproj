@@ -1,0 +1,670 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		348F30761D0D9ACD00CEE872 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 348F30751D0D9ACD00CEE872 /* main.m */; };
+		348F30791D0D9ACD00CEE872 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 348F30781D0D9ACD00CEE872 /* AppDelegate.m */; };
+		348F307C1D0D9ACD00CEE872 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 348F307B1D0D9ACD00CEE872 /* ViewController.m */; };
+		348F307F1D0D9ACE00CEE872 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 348F307D1D0D9ACD00CEE872 /* Main.storyboard */; };
+		348F30811D0D9ACE00CEE872 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 348F30801D0D9ACE00CEE872 /* Assets.xcassets */; };
+		348F30841D0D9ACE00CEE872 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 348F30821D0D9ACE00CEE872 /* LaunchScreen.storyboard */; };
+		348F308F1D0D9ACE00CEE872 /* TCWebViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 348F308E1D0D9ACE00CEE872 /* TCWebViewTests.m */; };
+		348F309A1D0D9ACE00CEE872 /* TCWebViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 348F30991D0D9ACE00CEE872 /* TCWebViewUITests.m */; };
+		348F30B71D0D9BAA00CEE872 /* plugins.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 348F30A91D0D9BAA00CEE872 /* plugins.bundle */; };
+		348F30B81D0D9BAA00CEE872 /* TCLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 348F30AB1D0D9BAA00CEE872 /* TCLogger.m */; };
+		348F30B91D0D9BAA00CEE872 /* TCPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 348F30AD1D0D9BAA00CEE872 /* TCPlugin.m */; };
+		348F30BA1D0D9BAA00CEE872 /* TCPluginCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 348F30B01D0D9BAA00CEE872 /* TCPluginCommand.m */; };
+		348F30BB1D0D9BAA00CEE872 /* TCPluginProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 348F30B21D0D9BAA00CEE872 /* TCPluginProxy.m */; };
+		348F30BC1D0D9BAA00CEE872 /* TCWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 348F30B41D0D9BAA00CEE872 /* TCWebView.m */; };
+		348F30BD1D0D9BAA00CEE872 /* TCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 348F30B61D0D9BAA00CEE872 /* TCWebViewController.m */; };
+		93BCBEEAA1FD830DBB6CB39C /* libPods-TCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FA4C9ECCCE8FA0193471B1 /* libPods-TCWebView.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		348F308B1D0D9ACE00CEE872 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 348F30691D0D9ACD00CEE872 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 348F30701D0D9ACD00CEE872;
+			remoteInfo = TCWebView;
+		};
+		348F30961D0D9ACE00CEE872 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 348F30691D0D9ACD00CEE872 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 348F30701D0D9ACD00CEE872;
+			remoteInfo = TCWebView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		348F30711D0D9ACD00CEE872 /* TCWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		348F30751D0D9ACD00CEE872 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		348F30771D0D9ACD00CEE872 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		348F30781D0D9ACD00CEE872 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		348F307A1D0D9ACD00CEE872 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		348F307B1D0D9ACD00CEE872 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		348F307E1D0D9ACD00CEE872 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		348F30801D0D9ACE00CEE872 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		348F30831D0D9ACE00CEE872 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		348F30851D0D9ACE00CEE872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		348F308A1D0D9ACE00CEE872 /* TCWebViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCWebViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		348F308E1D0D9ACE00CEE872 /* TCWebViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCWebViewTests.m; sourceTree = "<group>"; };
+		348F30901D0D9ACE00CEE872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		348F30951D0D9ACE00CEE872 /* TCWebViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCWebViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		348F30991D0D9ACE00CEE872 /* TCWebViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCWebViewUITests.m; sourceTree = "<group>"; };
+		348F309B1D0D9ACE00CEE872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		348F30A91D0D9BAA00CEE872 /* plugins.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = plugins.bundle; sourceTree = "<group>"; };
+		348F30AA1D0D9BAA00CEE872 /* TCLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCLogger.h; sourceTree = "<group>"; };
+		348F30AB1D0D9BAA00CEE872 /* TCLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCLogger.m; sourceTree = "<group>"; };
+		348F30AC1D0D9BAA00CEE872 /* TCPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPlugin.h; sourceTree = "<group>"; };
+		348F30AD1D0D9BAA00CEE872 /* TCPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPlugin.m; sourceTree = "<group>"; };
+		348F30AF1D0D9BAA00CEE872 /* TCPluginCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPluginCommand.h; sourceTree = "<group>"; };
+		348F30B01D0D9BAA00CEE872 /* TCPluginCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPluginCommand.m; sourceTree = "<group>"; };
+		348F30B11D0D9BAA00CEE872 /* TCPluginProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPluginProxy.h; sourceTree = "<group>"; };
+		348F30B21D0D9BAA00CEE872 /* TCPluginProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPluginProxy.m; sourceTree = "<group>"; };
+		348F30B31D0D9BAA00CEE872 /* TCWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCWebView.h; sourceTree = "<group>"; };
+		348F30B41D0D9BAA00CEE872 /* TCWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCWebView.m; sourceTree = "<group>"; };
+		348F30B51D0D9BAA00CEE872 /* TCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCWebViewController.h; sourceTree = "<group>"; };
+		348F30B61D0D9BAA00CEE872 /* TCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCWebViewController.m; sourceTree = "<group>"; };
+		55FA4C9ECCCE8FA0193471B1 /* libPods-TCWebView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TCWebView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D99A0E26805A5F0A24CE938 /* Pods-TCWebView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCWebView.release.xcconfig"; path = "Pods/Target Support Files/Pods-TCWebView/Pods-TCWebView.release.xcconfig"; sourceTree = "<group>"; };
+		B1331E16C51A49389F75E16A /* Pods-TCWebView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCWebView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TCWebView/Pods-TCWebView.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		348F306E1D0D9ACD00CEE872 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93BCBEEAA1FD830DBB6CB39C /* libPods-TCWebView.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		348F30871D0D9ACE00CEE872 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		348F30921D0D9ACE00CEE872 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		348F30681D0D9ACD00CEE872 = {
+			isa = PBXGroup;
+			children = (
+				348F30731D0D9ACD00CEE872 /* TCWebView */,
+				348F308D1D0D9ACE00CEE872 /* TCWebViewTests */,
+				348F30981D0D9ACE00CEE872 /* TCWebViewUITests */,
+				348F30721D0D9ACD00CEE872 /* Products */,
+				DA8403C07CDA792262E7AC95 /* Pods */,
+				A23CC50862B2E069B4ECF02E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		348F30721D0D9ACD00CEE872 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				348F30711D0D9ACD00CEE872 /* TCWebView.app */,
+				348F308A1D0D9ACE00CEE872 /* TCWebViewTests.xctest */,
+				348F30951D0D9ACE00CEE872 /* TCWebViewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		348F30731D0D9ACD00CEE872 /* TCWebView */ = {
+			isa = PBXGroup;
+			children = (
+				348F30A71D0D9B9300CEE872 /* Classes */,
+				348F30771D0D9ACD00CEE872 /* AppDelegate.h */,
+				348F30781D0D9ACD00CEE872 /* AppDelegate.m */,
+				348F307A1D0D9ACD00CEE872 /* ViewController.h */,
+				348F307B1D0D9ACD00CEE872 /* ViewController.m */,
+				348F307D1D0D9ACD00CEE872 /* Main.storyboard */,
+				348F30801D0D9ACE00CEE872 /* Assets.xcassets */,
+				348F30821D0D9ACE00CEE872 /* LaunchScreen.storyboard */,
+				348F30851D0D9ACE00CEE872 /* Info.plist */,
+				348F30741D0D9ACD00CEE872 /* Supporting Files */,
+			);
+			path = TCWebView;
+			sourceTree = "<group>";
+		};
+		348F30741D0D9ACD00CEE872 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				348F30751D0D9ACD00CEE872 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		348F308D1D0D9ACE00CEE872 /* TCWebViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				348F308E1D0D9ACE00CEE872 /* TCWebViewTests.m */,
+				348F30901D0D9ACE00CEE872 /* Info.plist */,
+			);
+			path = TCWebViewTests;
+			sourceTree = "<group>";
+		};
+		348F30981D0D9ACE00CEE872 /* TCWebViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				348F30991D0D9ACE00CEE872 /* TCWebViewUITests.m */,
+				348F309B1D0D9ACE00CEE872 /* Info.plist */,
+			);
+			path = TCWebViewUITests;
+			sourceTree = "<group>";
+		};
+		348F30A71D0D9B9300CEE872 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				348F30A81D0D9BAA00CEE872 /* Plugins */,
+				348F30B31D0D9BAA00CEE872 /* TCWebView.h */,
+				348F30B41D0D9BAA00CEE872 /* TCWebView.m */,
+				348F30B51D0D9BAA00CEE872 /* TCWebViewController.h */,
+				348F30B61D0D9BAA00CEE872 /* TCWebViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		348F30A81D0D9BAA00CEE872 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				348F30A91D0D9BAA00CEE872 /* plugins.bundle */,
+				348F30AA1D0D9BAA00CEE872 /* TCLogger.h */,
+				348F30AB1D0D9BAA00CEE872 /* TCLogger.m */,
+				348F30AC1D0D9BAA00CEE872 /* TCPlugin.h */,
+				348F30AD1D0D9BAA00CEE872 /* TCPlugin.m */,
+				348F30AE1D0D9BAA00CEE872 /* Supports */,
+			);
+			path = Plugins;
+			sourceTree = "<group>";
+		};
+		348F30AE1D0D9BAA00CEE872 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				348F30AF1D0D9BAA00CEE872 /* TCPluginCommand.h */,
+				348F30B01D0D9BAA00CEE872 /* TCPluginCommand.m */,
+				348F30B11D0D9BAA00CEE872 /* TCPluginProxy.h */,
+				348F30B21D0D9BAA00CEE872 /* TCPluginProxy.m */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		A23CC50862B2E069B4ECF02E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				55FA4C9ECCCE8FA0193471B1 /* libPods-TCWebView.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA8403C07CDA792262E7AC95 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B1331E16C51A49389F75E16A /* Pods-TCWebView.debug.xcconfig */,
+				8D99A0E26805A5F0A24CE938 /* Pods-TCWebView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		348F30701D0D9ACD00CEE872 /* TCWebView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 348F309E1D0D9ACE00CEE872 /* Build configuration list for PBXNativeTarget "TCWebView" */;
+			buildPhases = (
+				691433C4E0119970C9C40620 /* Check Pods Manifest.lock */,
+				348F306D1D0D9ACD00CEE872 /* Sources */,
+				348F306E1D0D9ACD00CEE872 /* Frameworks */,
+				348F306F1D0D9ACD00CEE872 /* Resources */,
+				97A1E3B91929D961E6CD9735 /* Embed Pods Frameworks */,
+				2554C6FF852B93BB460B398B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TCWebView;
+			productName = TCWebView;
+			productReference = 348F30711D0D9ACD00CEE872 /* TCWebView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		348F30891D0D9ACE00CEE872 /* TCWebViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 348F30A11D0D9ACE00CEE872 /* Build configuration list for PBXNativeTarget "TCWebViewTests" */;
+			buildPhases = (
+				348F30861D0D9ACE00CEE872 /* Sources */,
+				348F30871D0D9ACE00CEE872 /* Frameworks */,
+				348F30881D0D9ACE00CEE872 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				348F308C1D0D9ACE00CEE872 /* PBXTargetDependency */,
+			);
+			name = TCWebViewTests;
+			productName = TCWebViewTests;
+			productReference = 348F308A1D0D9ACE00CEE872 /* TCWebViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		348F30941D0D9ACE00CEE872 /* TCWebViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 348F30A41D0D9ACE00CEE872 /* Build configuration list for PBXNativeTarget "TCWebViewUITests" */;
+			buildPhases = (
+				348F30911D0D9ACE00CEE872 /* Sources */,
+				348F30921D0D9ACE00CEE872 /* Frameworks */,
+				348F30931D0D9ACE00CEE872 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				348F30971D0D9ACE00CEE872 /* PBXTargetDependency */,
+			);
+			name = TCWebViewUITests;
+			productName = TCWebViewUITests;
+			productReference = 348F30951D0D9ACE00CEE872 /* TCWebViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		348F30691D0D9ACD00CEE872 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "陈胜";
+				TargetAttributes = {
+					348F30701D0D9ACD00CEE872 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5ZUQ226LCB;
+					};
+					348F30891D0D9ACE00CEE872 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 348F30701D0D9ACD00CEE872;
+					};
+					348F30941D0D9ACE00CEE872 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 348F30701D0D9ACD00CEE872;
+					};
+				};
+			};
+			buildConfigurationList = 348F306C1D0D9ACD00CEE872 /* Build configuration list for PBXProject "TCWebView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 348F30681D0D9ACD00CEE872;
+			productRefGroup = 348F30721D0D9ACD00CEE872 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				348F30701D0D9ACD00CEE872 /* TCWebView */,
+				348F30891D0D9ACE00CEE872 /* TCWebViewTests */,
+				348F30941D0D9ACE00CEE872 /* TCWebViewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		348F306F1D0D9ACD00CEE872 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				348F30B71D0D9BAA00CEE872 /* plugins.bundle in Resources */,
+				348F30841D0D9ACE00CEE872 /* LaunchScreen.storyboard in Resources */,
+				348F30811D0D9ACE00CEE872 /* Assets.xcassets in Resources */,
+				348F307F1D0D9ACE00CEE872 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		348F30881D0D9ACE00CEE872 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		348F30931D0D9ACE00CEE872 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2554C6FF852B93BB460B398B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TCWebView/Pods-TCWebView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		691433C4E0119970C9C40620 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		97A1E3B91929D961E6CD9735 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TCWebView/Pods-TCWebView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		348F306D1D0D9ACD00CEE872 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				348F30BD1D0D9BAA00CEE872 /* TCWebViewController.m in Sources */,
+				348F307C1D0D9ACD00CEE872 /* ViewController.m in Sources */,
+				348F30B91D0D9BAA00CEE872 /* TCPlugin.m in Sources */,
+				348F30791D0D9ACD00CEE872 /* AppDelegate.m in Sources */,
+				348F30BB1D0D9BAA00CEE872 /* TCPluginProxy.m in Sources */,
+				348F30BC1D0D9BAA00CEE872 /* TCWebView.m in Sources */,
+				348F30BA1D0D9BAA00CEE872 /* TCPluginCommand.m in Sources */,
+				348F30B81D0D9BAA00CEE872 /* TCLogger.m in Sources */,
+				348F30761D0D9ACD00CEE872 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		348F30861D0D9ACE00CEE872 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				348F308F1D0D9ACE00CEE872 /* TCWebViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		348F30911D0D9ACE00CEE872 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				348F309A1D0D9ACE00CEE872 /* TCWebViewUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		348F308C1D0D9ACE00CEE872 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 348F30701D0D9ACD00CEE872 /* TCWebView */;
+			targetProxy = 348F308B1D0D9ACE00CEE872 /* PBXContainerItemProxy */;
+		};
+		348F30971D0D9ACE00CEE872 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 348F30701D0D9ACD00CEE872 /* TCWebView */;
+			targetProxy = 348F30961D0D9ACE00CEE872 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		348F307D1D0D9ACD00CEE872 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				348F307E1D0D9ACD00CEE872 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		348F30821D0D9ACE00CEE872 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				348F30831D0D9ACE00CEE872 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		348F309C1D0D9ACE00CEE872 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		348F309D1D0D9ACE00CEE872 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		348F309F1D0D9ACE00CEE872 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1331E16C51A49389F75E16A /* Pods-TCWebView.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = TCWebView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ichensheng.TCWebView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		348F30A01D0D9ACE00CEE872 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D99A0E26805A5F0A24CE938 /* Pods-TCWebView.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = TCWebView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ichensheng.TCWebView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		348F30A21D0D9ACE00CEE872 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TCWebViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ichensheng.TCWebViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCWebView.app/TCWebView";
+			};
+			name = Debug;
+		};
+		348F30A31D0D9ACE00CEE872 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TCWebViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ichensheng.TCWebViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCWebView.app/TCWebView";
+			};
+			name = Release;
+		};
+		348F30A51D0D9ACE00CEE872 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TCWebViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ichensheng.TCWebViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TCWebView;
+			};
+			name = Debug;
+		};
+		348F30A61D0D9ACE00CEE872 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TCWebViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ichensheng.TCWebViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TCWebView;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		348F306C1D0D9ACD00CEE872 /* Build configuration list for PBXProject "TCWebView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				348F309C1D0D9ACE00CEE872 /* Debug */,
+				348F309D1D0D9ACE00CEE872 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		348F309E1D0D9ACE00CEE872 /* Build configuration list for PBXNativeTarget "TCWebView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				348F309F1D0D9ACE00CEE872 /* Debug */,
+				348F30A01D0D9ACE00CEE872 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		348F30A11D0D9ACE00CEE872 /* Build configuration list for PBXNativeTarget "TCWebViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				348F30A21D0D9ACE00CEE872 /* Debug */,
+				348F30A31D0D9ACE00CEE872 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		348F30A41D0D9ACE00CEE872 /* Build configuration list for PBXNativeTarget "TCWebViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				348F30A51D0D9ACE00CEE872 /* Debug */,
+				348F30A61D0D9ACE00CEE872 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 348F30691D0D9ACD00CEE872 /* Project object */;
+}
