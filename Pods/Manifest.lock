@@ -6,19 +6,19 @@ PODS:
     - NJKWebViewProgress/ProgressView (= 0.2.3)
   - NJKWebViewProgress/Core (0.2.3)
   - NJKWebViewProgress/ProgressView (0.2.3)
-  - TCCategories (0.1):
+  - TCCategories (0.1.1):
     - JRSwizzle (~> 1.0)
     - Masonry (~> 1.0.0)
 
 DEPENDENCIES:
   - Masonry (~> 1.0.0)
   - NJKWebViewProgress (= 0.2.3)
-  - TCCategories (~> 0.1)
+  - TCCategories (~> 0.1.1)
 
 SPEC CHECKSUMS:
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
-  TCCategories: 724b93728dc262c85772addb0879f644118d0b41
+  TCCategories: 7f94f79ea1c46c797e5a85e4d3a8e7e83a57196c
 
 COCOAPODS: 0.39.0

@@ -7,7 +7,7 @@ target 'TCWebView' do
 
 pod 'NJKWebViewProgress', '0.2.3'
 pod 'Masonry', '~> 1.0.0'
-pod 'TCCategories', '~> 0.1'
+pod 'TCCategories', '~> 0.1.1'
 
 end
 

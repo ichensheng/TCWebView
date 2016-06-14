@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TCWebViewController.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (IBAction)openBaidu:(UIButton *)sender {
+    TCWebViewController *webViewController = [[TCWebViewController alloc] initWithURL:@"http://www.baidu.com"];
+    [self.navigationController pushViewController:webViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
