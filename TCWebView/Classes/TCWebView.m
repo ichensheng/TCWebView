@@ -21,7 +21,7 @@
 #endif
 
 static NSString *completedURLPath = @"__completedprogress__";
-static const CGFloat kPrevSnapShotMarginLeft = 60.0f;
+static const CGFloat kPrevSnapshotMarginLeft = 60.0f;
 
 @interface TCWebView() <UIWebViewDelegate>
 
@@ -32,8 +32,8 @@ static const CGFloat kPrevSnapShotMarginLeft = 60.0f;
  */
 @property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *backGesture;
 @property (nonatomic, strong) NSMutableArray *historyStack;
-@property (nonatomic, strong) UIView *currentSnapShot;
-@property (nonatomic, strong) UIView *prevSnapShot;
+@property (nonatomic, strong) UIView *currentSnapshot;
+@property (nonatomic, strong) UIView *prevSnapshot;
 @property (nonatomic, strong) UIView *swipingBackgoundView;
 @property (nonatomic, assign, getter=isSwipingBack) BOOL swipingBack;
 
@@ -143,7 +143,7 @@ static const CGFloat kPrevSnapShotMarginLeft = 60.0f;
     if (sender.state == UIGestureRecognizerStateBegan) {
         [self startPopSnapshotView];
     } else if (sender.state == UIGestureRecognizerStateCancelled || sender.state == UIGestureRecognizerStateEnded) {
-        [self endPopSnapShotView];
+        [self endPopSnapshotView];
     } else if (sender.state == UIGestureRecognizerStateChanged) {
         CGPoint translation = [sender translationInView:self];
         [self popSnapShotViewWithSwipeDistance:translation.x];
@@ -175,8 +175,8 @@ static const CGFloat kPrevSnapShotMarginLeft = 60.0f;
     
     NSString *lastURL = [[self.historyStack lastObject] objectForKey:@"url"];
     if (![lastURL isEqualToString:url]) {
-        UIView *snapShotView = [self snapshotViewAfterScreenUpdates:NO];
-        [self.historyStack addObject:@{@"preview":snapShotView, @"url":url}];
+        UIView *snapshotView = [self snapshotViewAfterScreenUpdates:NO];
+        [self.historyStack addObject:@{@"preview":snapshotView, @"url":url}];
     }
     
     // 成功加载第二个网页之后启用手势返回
@@ -194,28 +194,28 @@ static const CGFloat kPrevSnapShotMarginLeft = 60.0f;
     // create a center of scrren
     CGPoint center = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
     
-    self.currentSnapShot = [self snapshotViewAfterScreenUpdates:YES];
+    self.currentSnapshot = [self snapshotViewAfterScreenUpdates:YES];
     
     // 上层快照滑动时的左侧阴影
-    self.currentSnapShot.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.currentSnapShot.layer.shadowOffset = CGSizeMake(3, 3);
-    self.currentSnapShot.layer.shadowRadius = 5;
-    self.currentSnapShot.layer.shadowOpacity = 0.75;
+    self.currentSnapshot.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.currentSnapshot.layer.shadowOffset = CGSizeMake(3, 3);
+    self.currentSnapshot.layer.shadowRadius = 5;
+    self.currentSnapshot.layer.shadowOpacity = 0.75;
     
     // move to center of screen
-    self.currentSnapShot.center = center;
+    self.currentSnapshot.center = center;
     
-    self.prevSnapShot = (UIView *)[[self.historyStack lastObject] objectForKey:@"preview"];
-    center.x -= kPrevSnapShotMarginLeft;
-    self.prevSnapShot.center = center;
-    self.prevSnapShot.alpha = 1;
+    self.prevSnapshot = (UIView *)[[self.historyStack lastObject] objectForKey:@"preview"];
+    center.x -= kPrevSnapshotMarginLeft;
+    self.prevSnapshot.center = center;
+    self.prevSnapshot.alpha = 1;
     
-    [self addSubview:self.prevSnapShot];
+    [self addSubview:self.prevSnapshot];
     [self addSubview:self.swipingBackgoundView];
-    [self addSubview:self.currentSnapShot];
+    [self addSubview:self.currentSnapshot];
 }
 
-- (void)endPopSnapShotView {
+- (void)endPopSnapshotView {
     if (!self.isSwipingBack) {
         return;
     }
@@ -230,16 +230,13 @@ static const CGFloat kPrevSnapShotMarginLeft = 60.0f;
         height = kScreenWidth;
     }
     
-    if (self.currentSnapShot.center.x >= width) {
+    if (self.currentSnapshot.center.x >= width) {
         [UIView animateWithDuration:0.2 animations:^{
             [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-            self.currentSnapShot.center = CGPointMake(width * 3 / 2, height / 2);
-            self.prevSnapShot.center = CGPointMake(width / 2, height / 2);
+            self.currentSnapshot.center = CGPointMake(width * 3 / 2, height / 2);
+            self.prevSnapshot.center = CGPointMake(width / 2, height / 2);
             self.swipingBackgoundView.alpha = 0;
         } completion:^(BOOL finished) {
-            [self.prevSnapShot removeFromSuperview];
-            [self.swipingBackgoundView removeFromSuperview];
-            [self.currentSnapShot removeFromSuperview];
             [self goBack];
             [self.historyStack removeLastObject];
             self.userInteractionEnabled = YES;
@@ -249,21 +246,26 @@ static const CGFloat kPrevSnapShotMarginLeft = 60.0f;
             if (self.historyStack.count == 0) {
                 self.backGesture.enabled = NO;
             }
+            [self removeSnapshotScreen];
         }];
     } else {
         [UIView animateWithDuration:0.2 animations:^{
             [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-            self.currentSnapShot.center = CGPointMake(width / 2, height / 2);
-            self.prevSnapShot.center = CGPointMake(width / 2 - kPrevSnapShotMarginLeft, height / 2);
-            self.prevSnapShot.alpha = 1;
+            self.currentSnapshot.center = CGPointMake(width / 2, height / 2);
+            self.prevSnapshot.center = CGPointMake(width / 2 - kPrevSnapshotMarginLeft, height / 2);
+            self.prevSnapshot.alpha = 1;
         } completion:^(BOOL finished) {
-            [self.prevSnapShot removeFromSuperview];
-            [self.swipingBackgoundView removeFromSuperview];
-            [self.currentSnapShot removeFromSuperview];
+            [self removeSnapshotScreen];
             self.userInteractionEnabled = YES;
             self.swipingBack = NO;
         }];
     }
+}
+
+- (void)removeSnapshotScreen {
+    [self.prevSnapshot removeFromSuperview];
+    [self.swipingBackgoundView removeFromSuperview];
+    [self.currentSnapshot removeFromSuperview];
 }
 
 - (void)popSnapShotViewWithSwipeDistance:(CGFloat)distance {
@@ -276,10 +278,10 @@ static const CGFloat kPrevSnapShotMarginLeft = 60.0f;
     }
     CGPoint prevSnapshotCenter = CGPointMake(kScreenWidth / 2, kScreenHeight / 2);
     prevSnapshotCenter.x -= (kScreenWidth - distance) * 60 / kScreenWidth;
-    self.prevSnapShot.center = prevSnapshotCenter;
-    CGRect frame = self.currentSnapShot.frame;
+    self.prevSnapshot.center = prevSnapshotCenter;
+    CGRect frame = self.currentSnapshot.frame;
     frame.origin.x = distance;
-    self.currentSnapShot.frame = frame;
+    self.currentSnapshot.frame = frame;
     self.swipingBackgoundView.alpha = (kScreenWidth - distance) / kScreenWidth;
 }
 

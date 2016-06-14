@@ -21,10 +21,3 @@
 - (void)injectCSS:(NSString *)css;
 
 @end
-
-@protocol TCWebViewSwipeDelegate <NSObject>
-
-- (void)willSwipeBack;
-- (void)didSwipeBack;
-
-@end

@@ -29,7 +29,7 @@ static const CGFloat kBackButtonHeight = 30;            // 返回按钮高度
 static const CGFloat kBackButtonArrowWidth = 15;        // 返回箭头宽度
 
 
-@interface TCWebViewController ()<UIWebViewDelegate, NJKWebViewProgressDelegate, TCWebViewSwipeDelegate>
+@interface TCWebViewController ()<UIWebViewDelegate, NJKWebViewProgressDelegate>
 
 @property (nonatomic, strong, readwrite) TCWebView *webView;
 @property (nonatomic, strong) NSString *URLString;
@@ -155,15 +155,6 @@ static const CGFloat kBackButtonArrowWidth = 15;        // 返回箭头宽度
         progress = 0.01f;
     }
     [self.progressView setProgress:progress animated:YES];
-}
-
-#pragma mark - RHWebViewSwipeDelegate
-
-- (void)willSwipeBack {
-}
-
-- (void)didSwipeBack {
-    [self.navigationItem tc_setLeftBarButtonItems:@[self.backBarButtonItem, self.closeBarButtonItem]];
 }
 
 #pragma mark - Custom Events
