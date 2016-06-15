@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol TCWebViewSwipeDelegate;
 @interface TCWebView : UIWebView
-
-@property (nonatomic, weak) id<TCWebViewSwipeDelegate> swipeDelegate;
 
 /**
  *  嵌入css样式表
