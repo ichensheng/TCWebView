@@ -280,7 +280,6 @@ static const CGFloat kBackButtonArrowWidth = 15;        // 返回箭头宽度
         [self.view addSubview:_webView];
         _webView.backgroundColor = kWebViewBackgroundColor;
         _webView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-        _webView.swipeDelegate = self;
         _progressProxy = [[NJKWebViewProgress alloc] init];
         _webView.delegate = _progressProxy;
         _progressProxy.webViewProxyDelegate = self;
