@@ -14,10 +14,10 @@
  *  屏幕宽高
  */
 #ifndef kScreenWidth
-#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+    #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #endif
 #ifndef kScreenHeight
-#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+    #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #endif
 
 static NSString *completedURLPath = @"__completedprogress__";
