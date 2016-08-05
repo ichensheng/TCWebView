@@ -5,7 +5,7 @@ platform :ios, ‘7.0’
 
 target 'TCWebView' do
 
-pod 'NJKWebViewProgress', '0.2.3'
+pod 'RHNJKWebViewProgress'
 pod 'Masonry', '~> 1.0.0'
 pod 'TCCategories', '~> 0.1.1'
 

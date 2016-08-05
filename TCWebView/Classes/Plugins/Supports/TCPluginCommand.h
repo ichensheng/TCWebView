@@ -23,7 +23,7 @@
  *  @param arguments   方法参数
  *  @param callbackId  JS端回调函数ID
  *
- *  @return RCPluginCommand
+ *  @return TCPluginCommand
  */
 - (instancetype)initWithClassName:(NSString *)className
                        methodName:(NSString *)methodsName
@@ -37,7 +37,7 @@
  *  @param methodsName Native方法名
  *  @param arguments   方法参数
  *
- *  @return RCPluginCommand
+ *  @return TCPluginCommand
  */
 - (instancetype)initWithClassName:(NSString *)className
                        methodName:(NSString *)methodsName
@@ -49,7 +49,7 @@
  *  @param className   Native类名
  *  @param methodsName Native方法名
  *
- *  @return RCPluginCommand
+ *  @return TCPluginCommand
  */
 - (instancetype)initWithClassName:(NSString *)className
                        methodName:(NSString *)methodsName;
