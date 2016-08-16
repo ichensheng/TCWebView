@@ -10,6 +10,16 @@
 
 @interface UIImage (TCExtensions)
 
+/**
+ *  生成圆角图片
+ *
+ *  @param radius 圆角半径
+ *  @param size   要生成圆角图片的大小
+ *
+ *  @return 圆角图片
+ */
+- (UIImage *)tc_cornerImageWithRadius:(CGFloat)radius size:(CGSize)size;
+
 - (UIImage *)tc_scaleToSize:(CGSize)size;
 - (UIImage *)tc_scaleToRatio:(CGFloat)ratio;
 - (UIImage *)tc_scaleToFitSize:(CGSize)fitSize;

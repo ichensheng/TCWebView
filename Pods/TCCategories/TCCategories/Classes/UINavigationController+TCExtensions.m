@@ -33,6 +33,13 @@
         if (!result || error) {
             NSLog(@"Can't swizzle methods - %@", [error description]);
         }
+        
+        result = [[self class] jr_swizzleMethod:@selector(popViewControllerAnimated:)
+                                     withMethod:@selector(tc_popViewControllerAnimated:)
+                                          error:&error];
+        if (!result || error) {
+            NSLog(@"Can't swizzle methods - %@", [error description]);
+        }
     });
 }
 
@@ -51,6 +58,22 @@
     }
 }
 
+- (UIViewController *)tc_popViewControllerAnimated:(BOOL)animated {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+    if ([[self.viewControllers lastObject] respondsToSelector:@selector(tc_beforePopViewController)]) {
+        if ([[self.viewControllers lastObject] performSelector:@selector(tc_beforePopViewController)]) {
+#pragma clang diagnostic pop
+            return [self tc_popViewControllerAnimated:animated];
+        } else {
+            NSLog(@"beforePopViewController返回的值为NO，pop失败！");
+            return nil;
+        }
+    } else {
+        return [self tc_popViewControllerAnimated:animated];
+    }
+}
+
 #pragma mark - UINavigationControllerDelegate
 
 /**
@@ -64,11 +87,26 @@
     
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         if (self.viewControllers.count > 1) {
-            self.interactivePopGestureRecognizer.enabled = YES;
+            BOOL enabled = YES;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+            if ([viewController respondsToSelector:@selector(tc_interactivePopGestureRecognizer)]) {
+                enabled = (BOOL) [viewController performSelector:@selector(tc_interactivePopGestureRecognizer)];
+            }
+#pragma clang diagnostic pop
+            self.interactivePopGestureRecognizer.enabled = enabled;
         } else {
             self.interactivePopGestureRecognizer.enabled = NO;
         }
     }
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return [self.topViewController supportedInterfaceOrientations];
+}
+
+- (BOOL)shouldAutorotate {
+    return [self.topViewController shouldAutorotate];
 }
 
 @end

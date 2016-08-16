@@ -238,7 +238,7 @@ static const CGFloat kBackButtonArrowWidth = 15;        // 返回箭头宽度
     [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
 }
 
-- (BOOL)beforePopViewController {
+- (BOOL)tc_beforePopViewController {
     [self rotateToPortrait];
     return YES;
 }

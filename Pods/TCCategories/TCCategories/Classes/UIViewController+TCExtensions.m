@@ -129,36 +129,36 @@ NSString const * kAddedBackButton = @"addedBackButton";
 #pragma clang diagnostic ignored"-Warc-performSelector-leaks"
 - (UIFont *)navigationBarBackButtonFont {
     UIFont *navigationBarBackButtonFont = [UIFont boldSystemFontOfSize:17];
-    SEL rc_navigationBarBackButtonFont = @selector(rc_navigationBarBackButtonFont);
-    if ([self respondsToSelector:rc_navigationBarBackButtonFont]) {
-        navigationBarBackButtonFont = [self performSelector:rc_navigationBarBackButtonFont];
+    SEL tc_navigationBarBackButtonFont = @selector(tc_navigationBarBackButtonFont);
+    if ([self respondsToSelector:tc_navigationBarBackButtonFont]) {
+        navigationBarBackButtonFont = [self performSelector:tc_navigationBarBackButtonFont];
     }
     return navigationBarBackButtonFont;
 }
 
 - (NSString *)defaultBackButtonIcon {
     NSString *defaultBackButtonIcon = @"barbuttonicon_back";
-    SEL rc_defaultBackButtonIcon = @selector(rc_defaultBackButtonIcon);
-    if ([self respondsToSelector:rc_defaultBackButtonIcon]) {
-        defaultBackButtonIcon = [self performSelector:rc_defaultBackButtonIcon];
+    SEL tc_defaultBackButtonIcon = @selector(tc_defaultBackButtonIcon);
+    if ([self respondsToSelector:tc_defaultBackButtonIcon]) {
+        defaultBackButtonIcon = [self performSelector:tc_defaultBackButtonIcon];
     }
     return defaultBackButtonIcon;
 }
 
 - (NSString *)defaultBackTitle {
     NSString *defaultBackTitle = @"返回";
-    SEL rc_defaultBackTitle = @selector(rc_defaultBackTitle);
-    if ([self respondsToSelector:rc_defaultBackTitle]) {
-        defaultBackTitle = [self performSelector:rc_defaultBackTitle];
+    SEL tc_defaultBackTitle = @selector(tc_defaultBackTitle);
+    if ([self respondsToSelector:tc_defaultBackTitle]) {
+        defaultBackTitle = [self performSelector:tc_defaultBackTitle];
     }
     return defaultBackTitle;
 }
 
 - (UIColor *)navigationBarBackTintColor {
     UIColor *navigationBarBackTintColor = [UIColor colorWithRed:252.0f / 255 green:61.0f / 255 blue:57.0f / 255 alpha:1];
-    SEL rc_navigationBarBackTintColor = @selector(rc_navigationBarBackTintColor);
-    if ([self respondsToSelector:rc_navigationBarBackTintColor]) {
-        navigationBarBackTintColor = [self performSelector:rc_navigationBarBackTintColor];
+    SEL tc_navigationBarBackTintColor = @selector(tc_navigationBarBackTintColor);
+    if ([self respondsToSelector:tc_navigationBarBackTintColor]) {
+        navigationBarBackTintColor = [self performSelector:tc_navigationBarBackTintColor];
     }
     return navigationBarBackTintColor;
 }
@@ -183,6 +183,14 @@ NSString const * kAddedBackButton = @"addedBackButton";
     BOOL added = NO;
     [value getValue:&added];
     return added;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate {
+    return NO;
 }
 
 @end

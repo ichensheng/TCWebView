@@ -44,10 +44,7 @@ static CGFloat kDefaultBorderWidth = 0.5f;          // 边框默认宽度
                 if ([view isKindOfClass:NSClassFromString(@"_UISearchDisplayControllerDimmingView")]) {
                     UIViewController *currentController = [[UIApplication sharedApplication] tc_currentViewController];
                     if ([currentController performSelector:@selector(isShowSearchGuideView)]) {
-                        UIControl *dimmingView = (UIControl *)view;
                         UIView *dimmingSuperView = (UIView *)subview;
-                        // 将默认遮罩移到屏幕之外
-                        dimmingView.top = 10000;
                         BOOL added = NO;
                         for (UIView *v in dimmingSuperView.subviews) {
                             if ([v isKindOfClass:[TCSearchGuideView class]]) {
@@ -58,6 +55,10 @@ static CGFloat kDefaultBorderWidth = 0.5f;          // 边框默认宽度
                         searchGuideView.hidden = NO;
                         if (!added) {
                             [dimmingSuperView addSubview:searchGuideView];
+                            
+                            // 将默认遮罩移到屏幕之外
+                            UIControl *dimmingView = (UIControl *)view;
+                            dimmingView.top = 10000;
                         }
                     }
                     return;
@@ -97,7 +98,7 @@ static CGFloat kDefaultBorderWidth = 0.5f;          // 边框默认宽度
         return;
     }
     
-    __weak typeof(self) weakself = self;
+    __weak typeof(self) weakSelf = self;
     if ((borderPos & TCBorderPositionTop) == TCBorderPositionTop) {
         UIView *border = [self findBorder:TCBorderPositionTop];
         if (border) {
@@ -110,7 +111,7 @@ static CGFloat kDefaultBorderWidth = 0.5f;          // 边框默认宽度
             [border mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.mas_equalTo(0);
                 make.top.mas_equalTo(0);
-                make.width.equalTo(weakself.mas_width);
+                make.width.equalTo(weakSelf.mas_width);
                 make.height.mas_equalTo(borderWidth);
             }];
         }
@@ -130,7 +131,7 @@ static CGFloat kDefaultBorderWidth = 0.5f;          // 边框默认宽度
                 make.right.mas_equalTo(0);
                 make.top.mas_equalTo(0);
                 make.width.mas_equalTo(borderWidth);
-                make.height.mas_equalTo(weakself.mas_height);
+                make.height.mas_equalTo(weakSelf.mas_height);
             }];
         }
         border.backgroundColor = borderColor;
@@ -148,7 +149,7 @@ static CGFloat kDefaultBorderWidth = 0.5f;          // 边框默认宽度
             [border mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.mas_equalTo(0);
                 make.bottom.mas_equalTo(0);
-                make.width.equalTo(weakself.mas_width);
+                make.width.equalTo(weakSelf.mas_width);
                 make.height.mas_equalTo(borderWidth);
             }];
         }
@@ -168,7 +169,7 @@ static CGFloat kDefaultBorderWidth = 0.5f;          // 边框默认宽度
                 make.left.mas_equalTo(0);
                 make.top.mas_equalTo(0);
                 make.width.mas_equalTo(borderWidth);
-                make.height.mas_equalTo(weakself.mas_height);
+                make.height.mas_equalTo(weakSelf.mas_height);
             }];
         }
         border.backgroundColor = borderColor;
@@ -204,6 +205,8 @@ static CGFloat kDefaultBorderWidth = 0.5f;          // 边框默认宽度
     CALayer *layer  = self.layer;
     [layer setMasksToBounds:YES];
     [layer setCornerRadius:radius];
+    layer.shouldRasterize = YES;
+    layer.rasterizationScale = [UIScreen mainScreen].scale;
 }
 
 /**

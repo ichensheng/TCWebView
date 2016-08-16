@@ -9,7 +9,62 @@
 #import "UIImage+TCExtensions.h"
 #import <UIKit/UIKit.h>
 
+static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWidth, float ovalHeight) {
+    CGFloat fw, fh;
+    
+    if (ovalWidth == 0 || ovalHeight == 0) {
+        CGContextAddRect(context, rect);
+        return;
+    }
+    
+    CGContextSaveGState(context);
+    CGContextTranslateCTM(context, CGRectGetMinX(rect), CGRectGetMinY(rect));
+    CGContextScaleCTM(context, ovalWidth, ovalHeight);
+    fw = CGRectGetWidth(rect) / ovalWidth;
+    fh = CGRectGetHeight(rect) / ovalHeight;
+    
+    CGContextMoveToPoint(context, fw, fh / 2);  // Start at lower right corner
+    CGContextAddArcToPoint(context, fw, fh, fw / 2, fh, 1);  // Top right corner
+    CGContextAddArcToPoint(context, 0, fh, 0, fh / 2, 1); // Top left corner
+    CGContextAddArcToPoint(context, 0, 0, fw/2, 0, 1); // Lower left corner
+    CGContextAddArcToPoint(context, fw, 0, fw, fh / 2, 1); // Back to lower right
+    
+    CGContextClosePath(context);
+    CGContextRestoreGState(context);
+}
+
 @implementation UIImage (TCExtensions)
+
+/**
+ *  生成圆角图片
+ *
+ *  @param radius 圆角半径
+ *  @param size   要生成圆角图片的大小
+ *
+ *  @return 圆角图片
+ */
+- (UIImage *)tc_cornerImageWithRadius:(CGFloat)radius size:(CGSize)size {
+    size = CGSizeMake(size.width * 2, size.height * 2);
+    radius = radius * 2;
+    
+    UIImage *img = self;
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef context = CGBitmapContextCreate(NULL, size.width, size.height, 8, 4 * size.width, colorSpace,kCGImageAlphaPremultipliedFirst);
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    
+    CGContextBeginPath(context);
+    addRoundedRectToPath(context, rect, radius, radius);
+    CGContextClosePath(context);
+    CGContextClip(context);
+    CGContextDrawImage(context, CGRectMake(0, 0, size.width, size.height), img.CGImage);
+    CGImageRef imageMasked = CGBitmapContextCreateImage(context);
+    img = [UIImage imageWithCGImage:imageMasked];
+    
+    CGContextRelease(context);
+    CGColorSpaceRelease(colorSpace);
+    CGImageRelease(imageMasked);
+    return img;
+}
 
 /**
  *  图片缩放到目标尺寸

@@ -60,10 +60,12 @@ install_resource()
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "TCCategories/TCCategories/Classes/barbuttonicon_back@2x.png"
   install_resource "TCCategories/TCCategories/Classes/barbuttonicon_back@3x.png"
+  install_resource "TCCategories/TCCategories/Classes/CornerRadius@2x.png"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "TCCategories/TCCategories/Classes/barbuttonicon_back@2x.png"
   install_resource "TCCategories/TCCategories/Classes/barbuttonicon_back@3x.png"
+  install_resource "TCCategories/TCCategories/Classes/CornerRadius@2x.png"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

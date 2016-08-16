@@ -17,4 +17,13 @@
  */
 + (UIColor *)tc_randomColor;
 
+/**
+ *  16进制的颜色生成UIColor
+ *
+ *  @param hexString 类似于#FF00FF
+ *
+ *  @return UIColor
+ */
++ (UIColor *)tc_colorWithHexString:(NSString *)hexString;
+
 @end

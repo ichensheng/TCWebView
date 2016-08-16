@@ -40,4 +40,9 @@
  */
 - (void)tc_addSearchBar;
 
+/**
+ *  滚动到顶部
+ */
+- (void)tc_scrollToTop;
+
 @end

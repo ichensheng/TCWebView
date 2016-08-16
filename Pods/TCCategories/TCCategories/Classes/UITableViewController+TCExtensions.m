@@ -85,6 +85,17 @@ NSString const * kSearchDisplayController = @"searchDisplayController";
     self.tableView.tableHeaderView = self.searchBar;
 }
 
+/**
+ *  滚动到顶部
+ */
+- (void)tc_scrollToTop {
+    if (self.navigationController) {
+        [self.tableView setContentOffset:CGPointMake(0, -64) animated:YES];
+    } else {
+        [self.tableView setContentOffset:CGPointMake(0, -44) animated:YES];
+    }
+}
+
 #pragma mark - Getters and Setters
 
 - (void)setShowSearchGuideView:(BOOL)showSearchGuideView {
