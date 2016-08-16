@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
 	s.resources 	 = "TCWebView/Classes/**/*.bundle"
   s.requires_arc = true
   s.dependency "RHNJKWebViewProgress"
-	s.dependency "Masonry", "~> 1.0.0"
-	s.dependency "TCCategories", "~> 0.1.1"
+	s.dependency "Masonry"
+	s.dependency "TCCategories"
 end
