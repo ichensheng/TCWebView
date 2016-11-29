@@ -99,6 +99,10 @@ static const CGFloat kBackButtonArrowWidth = 15;        // 返回箭头宽度
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    NSLog(@"TCWebViewController收到内存警告，停止加载释放内存");
+    if ([self.webView isLoading]) {
+        [self.webView stopLoading];
+    }
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
@@ -122,7 +126,7 @@ static const CGFloat kBackButtonArrowWidth = 15;        // 返回箭头宽度
     [self loadJSBridge];
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     [self.progressView setProgress:1.0f animated:YES];
     
@@ -263,6 +267,7 @@ static const CGFloat kBackButtonArrowWidth = 15;        // 返回箭头宽度
 }
 
 - (void)destroyWebView {
+    NSLog(@"销毁UIWebView对象，释放内存");
     [self.webView loadHTMLString:@"" baseURL:nil];
     if ([self.webView isLoading]) {
         [self.webView stopLoading];
