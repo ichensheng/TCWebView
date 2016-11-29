@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "TCWebView"
-  s.version      = "0.1.4"
+  s.version      = "0.1.5"
   s.summary      = "App内嵌浏览器"
   s.homepage     = "https://github.com/ichensheng/TCWebView"
   s.license      = "MIT"
