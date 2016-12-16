@@ -104,11 +104,6 @@ static const CGFloat kPrevSnapshotMarginLeft = 60.0f;
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    
-    // 防止webview内存泄漏
-    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"WebKitCacheModelPreferenceKey"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
     if (self.webViewDelegate && [self.webViewDelegate respondsToSelector:@selector(webViewDidFinishLoad:)]) {
         [self.webViewDelegate webViewDidFinishLoad:webView];
     }
@@ -133,6 +128,14 @@ static const CGFloat kPrevSnapshotMarginLeft = 60.0f;
     self.backGesture.edges = UIRectEdgeLeft;
     self.backGesture.enabled = NO;
     [self addGestureRecognizer:self.backGesture];
+    
+    // 启用web cache
+    id webView = [self valueForKeyPath:@"_internal.browserView._webView"];
+    id preferences = [webView valueForKey:@"preferences"];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+    [preferences performSelector:@selector(_postCacheModelChangedNotification)];
+#pragma clang diagnostic pop
 }
 
 - (void)swipeBack:(UIScreenEdgePanGestureRecognizer *)sender {
@@ -346,6 +349,10 @@ static const CGFloat kPrevSnapshotMarginLeft = 60.0f;
 - (void)dealloc {
     [_historyStack removeAllObjects];
     _historyStack = nil;
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"WebKitCacheModelPreferenceKey"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"WebKitDiskImageCacheEnabled"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"WebKitOfflineWebApplicationCacheEnabled"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
