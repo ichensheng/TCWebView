@@ -118,12 +118,13 @@ static const CGFloat kBackButtonArrowWidth = 15;        // 返回箭头宽度
         } else {
             self.webPageFromWho.text = [NSString stringWithFormat:@"网页由 %@ 提供", request.URL.host];
         }
-    } else { // 加载本地文件直接就到100%
-        [self.progressView setProgress:1.0f animated:YES];
     }
     
     // 加载jsbridge
     [self loadJSBridge];
+    
+    // 加载完毕
+    [self.progressView setProgress:1.0f animated:YES];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
@@ -142,7 +143,7 @@ static const CGFloat kBackButtonArrowWidth = 15;        // 返回箭头宽度
         || errorCode == NSURLErrorDNSLookupFailed
         || errorCode == NSURLErrorTimedOut) { // 网络有问题
         
-        [self.progressView setProgress:0 animated:NO];
+        NSLog(@"已知的网络错误");
     } else { // 其它错误
         NSLog(@"description:%@  userInfo:%@", error.localizedDescription, error.userInfo);
     }
@@ -152,13 +153,12 @@ static const CGFloat kBackButtonArrowWidth = 15;        // 返回箭头宽度
 
 - (void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress {
     if (self.progressView.hidden) {
-        self.progressView.hidden = NO;
         [self.progressView setProgress:0.0f];
+        self.progressView.hidden = NO;
     }
-    if (progress == 0.0f) {
-        progress = 0.01f;
+    if (progress > 0) {
+        [self.progressView setProgress:progress animated:YES];
     }
-    [self.progressView setProgress:progress animated:YES];
 }
 
 #pragma mark - Custom Events
@@ -193,8 +193,8 @@ static const CGFloat kBackButtonArrowWidth = 15;        // 返回箭头宽度
                                                        encoding:NSUTF8StringEncoding
                                                           error:nil];
     NSString *devicereadyJs = [NSString stringWithFormat:@"var readyEvent = document.createEvent('Events');"\
-                    @"readyEvent.initEvent('deviceready');"\
-                    @"document.dispatchEvent(readyEvent);"];
+                               @"readyEvent.initEvent('deviceready');"\
+                               @"document.dispatchEvent(readyEvent);"];
     
     @try {
         [jsContext evaluateScript:script];
