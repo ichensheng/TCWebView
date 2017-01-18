@@ -249,14 +249,14 @@ static const CGFloat kBackButtonArrowWidth = 15;        // 返回箭头宽度
 
 - (NSURLRequest *)requestForURL:(NSString *)URLString {
     NSURLRequest *request = nil;
-    URLString = [URLString lowercaseString];
-    if ([URLString length] > 0) {
+    NSString *lowercaseString = [URLString lowercaseString];
+    if ([lowercaseString length] > 0) {
         NSURL *url = nil;
-        if([URLString hasPrefix:kFileProtocol]) { // 如果'file://'开头的字符串则加载bundle中的文件
+        if([lowercaseString hasPrefix:kFileProtocol]) { // 如果'file://'开头的字符串则加载bundle中的文件
             NSRange range = [URLString rangeOfString:kFileProtocol];
             NSString *fileName = [URLString substringFromIndex:range.length];
             url = [[NSBundle mainBundle] URLForResource:fileName withExtension:nil];
-        } else if ([URLString hasPrefix:kHttpProtocol] || [URLString hasPrefix:kHttpsProtocol]) {
+        } else if ([lowercaseString hasPrefix:kHttpProtocol] || [lowercaseString hasPrefix:kHttpsProtocol]) {
             url = [NSURL URLWithString:URLString];
         }
         if (url) {
