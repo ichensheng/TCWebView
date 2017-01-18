@@ -124,7 +124,10 @@ static const CGFloat kBackButtonArrowWidth = 15;        // 返回箭头宽度
     [self loadJSBridge];
     
     // 加载完毕
-    [self.progressView setProgress:1.0f animated:YES];
+    [self.progressView setProgress:0.99f animated:YES];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.progressView setProgress:1.0f animated:YES];
+    });
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
