@@ -260,13 +260,23 @@ static const CGFloat kBackButtonArrowWidth = 15;        // 返回箭头宽度
             NSString *fileName = [URLString substringFromIndex:range.length];
             url = [[NSBundle mainBundle] URLForResource:fileName withExtension:nil];
         } else if ([lowercaseString hasPrefix:kHttpProtocol] || [lowercaseString hasPrefix:kHttpsProtocol]) {
-            url = [NSURL URLWithString:URLString];
+            url = [NSURL URLWithString:[self URLEncode:URLString]];
         }
         if (url) {
             request = [NSURLRequest requestWithURL:url];
         }
     }
     return request;
+}
+
+- (NSString *)URLEncode:(NSString *)URLString {
+    CFStringRef strRef =
+    CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                            (CFStringRef)URLString,
+                                            NULL,
+                                            NULL,
+                                            kCFStringEncodingUTF8);
+    return (NSString *)CFBridgingRelease(strRef);
 }
 
 - (void)destroyWebView {
